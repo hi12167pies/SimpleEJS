@@ -8,13 +8,9 @@ The thing that make this cool is you can use EJS and use javascript on the serve
 Files ending in .ejs are using this
 
 # Examples
-```
-<%- includes('./header.ejs') %>
-```
-
-You may also use the `req` and `res` variables inside you ejs
-
-```
+Please check out the EJS Module for nodejs https://www.npmjs.com/package/ejs
+You can use the `req` and `res` variables inside you ejs
+```html
 <%
   let content
   if (req.query.page == "home") {
@@ -27,4 +23,18 @@ You may also use the `req` and `res` variables inside you ejs
 <div>
   <%- content %>
 </div>
+```
+# Build
+First install all the packages
+```bash
+cd ./SimpleJS
+npm i
+```
+Next install pkg
+```bash
+npm i -g pkg
+```
+Finnaly build the project
+```bash
+pkg .
 ```
