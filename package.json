@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.0",
+    "node-recursive-directory": "^1.2.0",
+    "yargs": "^17.6.2"
+  },
+  "name": "ejs-server",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "bin": "src/index.js",
+  "pkg": {
+    "assets": [
+      "assets/**/*"
+    ],
+    "outputPath": "out"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "hi12167pies",
+  "license": "ISC",
+  "description": ""
+}
