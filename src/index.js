@@ -25,6 +25,7 @@ app.set("views", static.VIEWS)
 
 app.use(require("./router/info"))
 
+app.use(express.urlencoded({ extended: false }))
 
 let views = []
 
@@ -53,7 +54,7 @@ const updateViews = () => new Promise(async (resolve, reject) => {
   temp = temp.map(item => item.slice(process.cwd().length + "/views/".length))
   note("filter item (remove hidden directory, and static)", "views")
   temp = temp.filter(item => {
-    for (const ignore of config.ignoreFolder) {
+    for (const ignore of config.private) {
       if (!item.startsWith(ignore) || !item.endsWith(".ejs")) continue
       return false
     }
@@ -63,6 +64,7 @@ const updateViews = () => new Promise(async (resolve, reject) => {
 })
 
 async function main() {
+  app.use(require("./router/prevent")(config))
   app.use(require("./router/main")(config, views, updateViews))
 
   app.listen(config.port, () => {
